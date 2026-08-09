@@ -1,0 +1,1 @@
+/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/bst_operations_test.dir/bst_operations_test.cpp.o -o bst_operations_test
