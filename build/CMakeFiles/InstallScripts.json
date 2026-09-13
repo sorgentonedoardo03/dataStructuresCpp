@@ -1,8 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"/Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build/cmake_install.cmake",
-		"/Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build/tests/cmake_install.cmake"
-	],
-	"Parallel" : false
-}
