@@ -1,0 +1,1 @@
+/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/bst_op.dir/bst_operations_test.cpp.o -o bst_op   -L/Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/tests/edods

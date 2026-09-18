@@ -1,0 +1,44 @@
+# this is an example of Makefile. We use directly CMake to generate Make Files, but here's an example of how make works. 
+# if you are not interested in learning Make you can skip this file
+CXX      := clang++  #variable for chosing the compiler 
+MODE     ?= debug    #var. for chosing the mode(debug or release)
+
+ifeq ($(MODE),release)
+    CXXFLAGS := -std=c++20 -O3 -DNDEBUG -Iinclude -MMD -MP
+    LDFLAGS  :=
+else
+    CXXFLAGS := -std=c++20 -O0 -g -fsanitize=address,undefined -Iinclude -MMD -MP
+    LDFLAGS  := -fsanitize=address,undefined
+endif
+
+BUILD_DIR := bin
+SRCS      := tests/bst_operations_test.cpp tests/bst_persistence_test.cpp
+# Transforms tests/x.cpp into bin/x.o
+OBJS      := $(SRCS:tests/%.cpp=$(BUILD_DIR)/%.o)
+# Transforms bin/x.o into the corresponding bin/x executables
+TARGETS   := $(OBJS:%.o=%)
+DEPS      := $(OBJS:%.o=%.d)
+
+# make represents targets and their dependencies as a DAG (Directed Acyclic Graph).
+# instead of recompiling the entire project it compares the timestamp(indicating when the node was modified) of each node and dependency.
+# If any dependency is newer than its target, make rebuilds that target
+all: $(TARGETS)
+
+# 1. Linking rule: creates the executable from the .o file
+$(BUILD_DIR)/%: $(BUILD_DIR)/%.o
+	$(CXX) $(LDFLAGS) $< -o $@
+
+# 2. Compilation rule: creates the .o file from the .cpp source file
+$(BUILD_DIR)/%.o: tests/%.cpp | $(BUILD_DIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(BUILD_DIR):
+	mkdir -p $(BUILD_DIR)
+
+-include $(DEPS)
+
+clean:
+	rm -rf $(BUILD_DIR)
+
+# .PHONY indicates all the targets that are not linked with a physical file, but are just placeholders. 
+.PHONY: all clean

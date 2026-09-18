@@ -31,47 +31,51 @@ namespace edods{
     template< typename Key, typename Compare = std::less<Key> >
     class BST{
         public: 
+            // using allow you to assign an alias to a certain type: 
+            using key_type = Key; //now Key can be also used with the name key_type
+            using size_type = std::size_t; // and std::size_t can be just used with size_type
 
-        // using allow you to assign an alias to a certain type: 
-        using key_type = Key; //now Key can be also used with the name key_type
-        using size_type = std::size_t; // and std::size_t can be just used with size_type
+            BST() = default; // it creates the default class constructor, BST(){}
 
-        BST() = default; // it creates the default class constructor, BST(){}
+            bool insert(const Key& k); //const before param means that is not possibile to modify the parameter k, but you can only read it
+            bool del(const Key& k);
+            bool contains(const Key& k) const; // const after parameters states that the function does not modify the object's state / class members
+            
+            std::optional<Key> minimum() const;
+            std::optional<Key> maximum() const;
+            std::optional<Key> predecessor(const Key& key) const;
+            std::optional<Key> successor(const Key& key) const;
 
-        bool insert(const Key& k); //const before param means that is not possibile to modify the parameter k, but you can only read it
-        bool del(const Key& k);
-        bool contains(const Key& k) const; // const after parameters states that the function does not modify the object's state / class members
-        
-        std::optional<Key> minimum() const;
-        std::optional<Key> maximum() const;
-        std::optional<Key> predecessor(const Key& key) const;
-        std::optional<Key> successor(const Key& key) const;
+            [[nodiscard]] bool empty() const noexcept; //[[nodiscard]] is a compiler attribute for raising warnings if the programmer discards the value returned
+            [[nodiscard]] size_type size() const noexcept; //noexcept is promise that the method will never raise an exceptions
+            [[nodiscard]] size_type height() const noexcept;
+            [[nodiscard]] bool validate() const;
 
-        [[nodiscard]] bool empty() const noexcept; //[[nodiscard]] is a compiler attribute for raising warnings if the programmer discards the value returned
-        [[nodiscard]] size_type size() const noexcept; //noexcept is promise that the method will never raise an exceptions
-        [[nodiscard]] size_type height() const noexcept;
-        [[nodiscard]] bool validate() const;
-
-        void clear() noexcept;
-        void save(const std::filesystem::path& path) const;
-        static BST load(const std::filesystem::path& path); //static method belongs to the class itself rather than an instance, meaning it can be called without instantiating the class.
-        
+            void clear() noexcept;
+            void save(const std::filesystem::path& path) const;
+            static BST load(const std::filesystem::path& path); //static method belongs to the class itself rather than an instance, meaning it can be called without instantiating the class.
+            
         private:
-        
-        struct Node {
-            explicit Node(const Key& value, Node* parent_node = nullptr) 
-                : key(value), parent(parent_node) {} // struct constructor. 
+            struct Node {
+                explicit Node(const Key& value, Node* parent_node = nullptr) 
+                    : key(value), parent(parent_node) {} // struct constructor. 
 
-            Key key;
-            std::unique_ptr<Node> left;  // std::unique_ptr<T> exclusively owns a dynamically allocated object and automatically destroys it when the pointer goes out of scope.
-            std::unique_ptr<Node> right;
-            Node* parent = nullptr;
-        };
-
-        std::unique_ptr<Node> root_;
-        size_type size_ = 0;
-        Compare compare_;
-
+                Key key;
+                std::unique_ptr<Node> left;  // std::unique_ptr<T> exclusively owns a dynamically allocated object and automatically destroys it when the pointer goes out of scope.
+                std::unique_ptr<Node> right;
+                Node* parent = nullptr;
+            };
+            
+            using node = Node*;
+            bool delete_node(node n);
+            void recompute_deepest(node n, int height);
+            std::unique_ptr<Node> root_;
+            bool is_node_valid(node n) const;
+            size_type size_ = 0;
+            size_type height_ = 0; 
+            Node* deepest_node_ = nullptr;
+            Compare compare_;
+            
     
     };
 
