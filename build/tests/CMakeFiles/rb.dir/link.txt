@@ -1,0 +1,1 @@
+/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/rb.dir/rb.cpp.o -o rb   -L/Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/tests/edods

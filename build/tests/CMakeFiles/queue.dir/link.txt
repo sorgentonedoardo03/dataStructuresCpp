@@ -1,0 +1,1 @@
+/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/queue.dir/queue.cpp.o -o queue   -L/Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/tests/edods

@@ -1,5 +1,5 @@
-tests/CMakeFiles/bst_op.dir/bst_operations_test.cpp.o: \
-  /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/tests/bst_operations_test.cpp \
+tests/CMakeFiles/bst.dir/bst.cpp.o: \
+  /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/tests/bst.cpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config_site \

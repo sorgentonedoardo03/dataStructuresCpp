@@ -1,4 +1,7 @@
 #include <optional>
+#include <fstream>
+#include <optional>
+
 namespace edods {
 
     /**
@@ -47,6 +50,24 @@ namespace edods {
     template<typename Key, typename Compare>
     typename BST<Key,Compare>::size_type BST<Key,Compare>::height() const noexcept {
         return height_;
+    }
+
+    /**
+     * @brief Removes all elements from the BST, leaving it empty
+     * * Destroys all nodes in the tree and resets size, height, and node pointers.
+     * Memory is deterministically deallocated via RAII through unique_ptr cascading.
+     * * @post empty() == true
+     * @post size() == 0
+     * @post height() == 0
+     * @note Time Complexity: O(n), where n is the number of nodes in the tree
+     * @note Space Complexity: O(h) call stack frames due to recursive destruction, where h is the tree height
+     */
+    template<typename Key, typename Compare>
+    void BST<Key, Compare>::clear() noexcept {
+        root_.reset();
+        size_ = 0;
+        height_ = 0;
+        deepest_node_ = nullptr;
     }
 
     /**
@@ -239,6 +260,59 @@ namespace edods {
 
         return parent->key;
     }
+
+    /**
+     * @brief Insert a node in the tree by passing the key
+     * @param key is the key to insert in the BST
+     * @post tree.contains(key) = true, height must be updated and deepest_node too, with the current deepest node.
+     * @note Time complexity is O(h)
+     * @note Space complexity is O(1)
+     */
+    template<typename Key, typename Compare>
+    bool BST<Key, Compare>::insert(const Key& key) {
+        node y = nullptr;
+        node x = root_.get();
+        size_type current_depth = 1;
+
+        // 1. finding the parente where to attach new node
+        while (x != nullptr) {
+            y = x;
+            if (compare_(key, x->key)) {
+                x = x->left.get();
+            } else if (compare_(x->key, key)) {
+                x = x->right.get();
+            } else {
+                return false; // duplicate
+            }
+            ++current_depth;
+        }
+
+        // 2. creating the node
+        auto n = std::make_unique<Node>(key, y);
+        node raw_n = n.get();
+
+        // 3. inserting it in the bst
+        if (y == nullptr) {
+            root_ = std::move(n);
+            height_ = 1;
+            deepest_node_ = raw_n;
+        } else {
+            if (compare_(key, y->key)) {
+                y->left = std::move(n);
+            } else {
+                y->right = std::move(n);
+            }
+
+            // 4. height and deepest node update
+            if (current_depth > height_) {
+                height_ = current_depth;
+                deepest_node_ = raw_n;
+            }
+        }
+
+        ++size_;
+        return true;
+    }
     
     /**
      * @brief Classic algorithm for deleting a node in a BST.
@@ -402,4 +476,91 @@ namespace edods {
     }
     
 
+
+
+    //-------------- PERSISTENCE ------------------
+    // AUX method for save()
+    // writes recursively  nodes in the file in pre-order
+    template<typename Key, typename Compare>
+    void BST<Key, Compare>::save_preorder(node n, std::ofstream& out) const {
+        if (n == nullptr) {
+            return;
+        }
+        // 1. writes the root
+        out.write(reinterpret_cast<const char*>(&(n->key)), sizeof(Key));
+        // 2. left subtree visit
+        save_preorder(n->left.get(), out);
+        // 3. right subtree visit
+        save_preorder(n->right.get(), out);
+    }
+
+    /**
+     * @brief Serializes the BST to persistent storage at the specified path.
+     * * Uses binary pre-order traversal serialization to ensure that deserializing
+     * reconstructs the identical tree topology.
+     * * @param path Filesystem path where the binary dump will be written.
+     * @throws std::runtime_error if the destination file cannot be opened.
+     * @note Time Complexity: O(n), where n is the number of nodes.
+     * @note Space Complexity: O(h) recursion depth, where h is the tree height.
+     */
+    template<typename Key, typename Compare>
+    void BST<Key, Compare>::save(const std::filesystem::path& path) const {
+        std::ofstream out(path, std::ios::binary | std::ios::trunc);
+        if (!out.is_open()) {
+            throw std::runtime_error("Error opening the file: " + path.string());
+        }
+
+        // Header: writing the size of BST
+        // it casts the address of size_ to a byte pointer (char*) so out.write can read and dump its exact 8 bytes of memory directly into the file
+        out.write(reinterpret_cast<const char*>(&size_), sizeof(size_type));
+
+        // writing keys in pre-order
+        save_preorder(root_.get(), out);
+        // Flush and verify that all bytes were written successfully to disk
+        out.flush();
+        if (!out.good()) {
+            throw std::runtime_error("I/O error while writing data to file: " + path.string());
+        }
+    }
+
+    /**
+     * @brief Deserializes a BST from persistent storage.
+     * * Reads the serialized binary file, extracts the total size, and sequentially
+     * inserts the keys to restore the exact original tree topology.
+     * * @param path Filesystem path of the binary dump to load.
+     * @return BST<Key, Compare> A newly reconstructed BST instance.
+     * @throws std::runtime_error if the file cannot be opened or if I/O read fails.
+     * @note Time Complexity: O(n log n) average, O(n^2) worst case (due to sequential insertions).
+     * @note Space Complexity: O(n) to allocate the reconstructed tree nodes.
+     */
+    template<typename Key, typename Compare>
+    BST<Key, Compare> BST<Key, Compare>::load(const std::filesystem::path& path) {
+        std::ifstream in(path, std::ios::binary);
+        if (!in.is_open()) {
+            throw std::runtime_error("Error opening the file for reading: " + path.string());
+        }
+
+        // 1. Leggi la dimensione salvata nell'header
+        size_type saved_size = 0;
+        in.read(reinterpret_cast<char*>(&saved_size), sizeof(size_type));
+        if (!in.good()) {
+            throw std::runtime_error("Error reading header from file: " + path.string());
+        }
+
+        BST<Key, Compare> tree;
+
+        // 2. Leggi le singole chiavi e inseriscile una ad una
+        for (size_type i = 0; i < saved_size; ++i) {
+            Key k{};
+            in.read(reinterpret_cast<char*>(&k), sizeof(Key));
+            
+            if (!in.good()) {
+                throw std::runtime_error("Corrupted file or unexpected EOF while reading keys: " + path.string());
+            }
+
+            tree.insert(k);
+        }
+
+        return tree;
+    }
 }

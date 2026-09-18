@@ -2,6 +2,7 @@
 
 #include <cstddef>
 #include <filesystem>
+#include <fstream>
 #include <functional>
 #include <memory>
 #include <optional>
@@ -65,12 +66,16 @@ namespace edods{
                 std::unique_ptr<Node> right;
                 Node* parent = nullptr;
             };
-            
             using node = Node*;
+            
+            
             bool delete_node(node n);
-            void recompute_deepest(node n, int height);
+            void recompute_deepest(node n, size_type height);
+            bool is_node_valid(node n, const Key* min_key, const Key* max_key) const ;
+            void save_preorder(node n, std::ofstream& out) const;
+
+            
             std::unique_ptr<Node> root_;
-            bool is_node_valid(node n) const;
             size_type size_ = 0;
             size_type height_ = 0; 
             Node* deepest_node_ = nullptr;

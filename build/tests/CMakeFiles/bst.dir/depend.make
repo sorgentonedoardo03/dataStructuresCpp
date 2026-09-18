@@ -1,2 +1,2 @@
-# Empty dependencies file for bst_op.
+# Empty dependencies file for bst.
 # This may be replaced when dependencies are built.

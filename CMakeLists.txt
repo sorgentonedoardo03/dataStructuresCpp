@@ -1,6 +1,8 @@
 # CMake describes the project and generates the native build files. In this setup it ends up producing Makefiles(f.e.) on your system
 cmake_minimum_required(VERSION 4.4)
-
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 project(ds_lib LANGUAGES CXX) # creates a CMake project called "ds_lib" with C++ language.It automatically identifies the C++ compiler installed on the machine.
 
 # create a target library called edods 

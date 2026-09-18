@@ -511,17 +511,56 @@ esempio/fast:
 .PHONY : esempio/fast
 
 #=============================================================================
-# Target rules for targets named bst_op
+# Target rules for targets named bst
 
 # Build rule for target.
-bst_op: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bst_op
-.PHONY : bst_op
+bst: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bst
+.PHONY : bst
 
 # fast build rule for target.
-bst_op/fast:
-	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/bst_op.dir/build.make tests/CMakeFiles/bst_op.dir/build
-.PHONY : bst_op/fast
+bst/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/bst.dir/build.make tests/CMakeFiles/bst.dir/build
+.PHONY : bst/fast
+
+#=============================================================================
+# Target rules for targets named rb
+
+# Build rule for target.
+rb: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 rb
+.PHONY : rb
+
+# fast build rule for target.
+rb/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/rb.dir/build.make tests/CMakeFiles/rb.dir/build
+.PHONY : rb/fast
+
+#=============================================================================
+# Target rules for targets named hashmap
+
+# Build rule for target.
+hashmap: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hashmap
+.PHONY : hashmap
+
+# fast build rule for target.
+hashmap/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/hashmap.dir/build.make tests/CMakeFiles/hashmap.dir/build
+.PHONY : hashmap/fast
+
+#=============================================================================
+# Target rules for targets named queue
+
+# Build rule for target.
+queue: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 queue
+.PHONY : queue
+
+# fast build rule for target.
+queue/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/queue.dir/build.make tests/CMakeFiles/queue.dir/build
+.PHONY : queue/fast
 
 # Help Target
 help:
@@ -561,8 +600,11 @@ help:
 	@echo "... NightlySubmit"
 	@echo "... NightlyTest"
 	@echo "... NightlyUpdate"
-	@echo "... bst_op"
+	@echo "... bst"
 	@echo "... esempio"
+	@echo "... hashmap"
+	@echo "... queue"
+	@echo "... rb"
 .PHONY : help
 
 

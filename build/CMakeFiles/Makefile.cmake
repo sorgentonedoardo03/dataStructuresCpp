@@ -88,5 +88,8 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/ContinuousMemCheck.dir/DependInfo.cmake"
   "CMakeFiles/ContinuousSubmit.dir/DependInfo.cmake"
   "examples/CMakeFiles/esempio.dir/DependInfo.cmake"
-  "tests/CMakeFiles/bst_op.dir/DependInfo.cmake"
+  "tests/CMakeFiles/bst.dir/DependInfo.cmake"
+  "tests/CMakeFiles/rb.dir/DependInfo.cmake"
+  "tests/CMakeFiles/hashmap.dir/DependInfo.cmake"
+  "tests/CMakeFiles/queue.dir/DependInfo.cmake"
   )

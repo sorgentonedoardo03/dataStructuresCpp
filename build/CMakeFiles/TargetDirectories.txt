@@ -33,7 +33,10 @@
 /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build/examples/CMakeFiles/test.dir
 /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build/examples/CMakeFiles/edit_cache.dir
 /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build/examples/CMakeFiles/rebuild_cache.dir
-/Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build/tests/CMakeFiles/bst_op.dir
+/Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build/tests/CMakeFiles/bst.dir
+/Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build/tests/CMakeFiles/rb.dir
+/Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build/tests/CMakeFiles/hashmap.dir
+/Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build/tests/CMakeFiles/queue.dir
 /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build/tests/CMakeFiles/test.dir
 /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build/tests/CMakeFiles/edit_cache.dir
 /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build/tests/CMakeFiles/rebuild_cache.dir

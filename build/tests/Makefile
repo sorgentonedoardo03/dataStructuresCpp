@@ -134,42 +134,156 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-tests/CMakeFiles/bst_op.dir/rule:
-	cd /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/bst_op.dir/rule
-.PHONY : tests/CMakeFiles/bst_op.dir/rule
+tests/CMakeFiles/bst.dir/rule:
+	cd /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/bst.dir/rule
+.PHONY : tests/CMakeFiles/bst.dir/rule
 
 # Convenience name for target.
-bst_op: tests/CMakeFiles/bst_op.dir/rule
-.PHONY : bst_op
+bst: tests/CMakeFiles/bst.dir/rule
+.PHONY : bst
 
 # fast build rule for target.
-bst_op/fast:
-	cd /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/bst_op.dir/build.make tests/CMakeFiles/bst_op.dir/build
-.PHONY : bst_op/fast
+bst/fast:
+	cd /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/bst.dir/build.make tests/CMakeFiles/bst.dir/build
+.PHONY : bst/fast
 
-bst_operations_test.o: bst_operations_test.cpp.o
-.PHONY : bst_operations_test.o
+# Convenience name for target.
+tests/CMakeFiles/rb.dir/rule:
+	cd /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/rb.dir/rule
+.PHONY : tests/CMakeFiles/rb.dir/rule
+
+# Convenience name for target.
+rb: tests/CMakeFiles/rb.dir/rule
+.PHONY : rb
+
+# fast build rule for target.
+rb/fast:
+	cd /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/rb.dir/build.make tests/CMakeFiles/rb.dir/build
+.PHONY : rb/fast
+
+# Convenience name for target.
+tests/CMakeFiles/hashmap.dir/rule:
+	cd /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/hashmap.dir/rule
+.PHONY : tests/CMakeFiles/hashmap.dir/rule
+
+# Convenience name for target.
+hashmap: tests/CMakeFiles/hashmap.dir/rule
+.PHONY : hashmap
+
+# fast build rule for target.
+hashmap/fast:
+	cd /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/hashmap.dir/build.make tests/CMakeFiles/hashmap.dir/build
+.PHONY : hashmap/fast
+
+# Convenience name for target.
+tests/CMakeFiles/queue.dir/rule:
+	cd /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/queue.dir/rule
+.PHONY : tests/CMakeFiles/queue.dir/rule
+
+# Convenience name for target.
+queue: tests/CMakeFiles/queue.dir/rule
+.PHONY : queue
+
+# fast build rule for target.
+queue/fast:
+	cd /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/queue.dir/build.make tests/CMakeFiles/queue.dir/build
+.PHONY : queue/fast
+
+bst.o: bst.cpp.o
+.PHONY : bst.o
 
 # target to build an object file
-bst_operations_test.cpp.o:
-	cd /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/bst_op.dir/build.make tests/CMakeFiles/bst_op.dir/bst_operations_test.cpp.o
-.PHONY : bst_operations_test.cpp.o
+bst.cpp.o:
+	cd /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/bst.dir/build.make tests/CMakeFiles/bst.dir/bst.cpp.o
+.PHONY : bst.cpp.o
 
-bst_operations_test.i: bst_operations_test.cpp.i
-.PHONY : bst_operations_test.i
+bst.i: bst.cpp.i
+.PHONY : bst.i
 
 # target to preprocess a source file
-bst_operations_test.cpp.i:
-	cd /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/bst_op.dir/build.make tests/CMakeFiles/bst_op.dir/bst_operations_test.cpp.i
-.PHONY : bst_operations_test.cpp.i
+bst.cpp.i:
+	cd /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/bst.dir/build.make tests/CMakeFiles/bst.dir/bst.cpp.i
+.PHONY : bst.cpp.i
 
-bst_operations_test.s: bst_operations_test.cpp.s
-.PHONY : bst_operations_test.s
+bst.s: bst.cpp.s
+.PHONY : bst.s
 
 # target to generate assembly for a file
-bst_operations_test.cpp.s:
-	cd /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/bst_op.dir/build.make tests/CMakeFiles/bst_op.dir/bst_operations_test.cpp.s
-.PHONY : bst_operations_test.cpp.s
+bst.cpp.s:
+	cd /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/bst.dir/build.make tests/CMakeFiles/bst.dir/bst.cpp.s
+.PHONY : bst.cpp.s
+
+hashmap.o: hashmap.cpp.o
+.PHONY : hashmap.o
+
+# target to build an object file
+hashmap.cpp.o:
+	cd /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/hashmap.dir/build.make tests/CMakeFiles/hashmap.dir/hashmap.cpp.o
+.PHONY : hashmap.cpp.o
+
+hashmap.i: hashmap.cpp.i
+.PHONY : hashmap.i
+
+# target to preprocess a source file
+hashmap.cpp.i:
+	cd /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/hashmap.dir/build.make tests/CMakeFiles/hashmap.dir/hashmap.cpp.i
+.PHONY : hashmap.cpp.i
+
+hashmap.s: hashmap.cpp.s
+.PHONY : hashmap.s
+
+# target to generate assembly for a file
+hashmap.cpp.s:
+	cd /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/hashmap.dir/build.make tests/CMakeFiles/hashmap.dir/hashmap.cpp.s
+.PHONY : hashmap.cpp.s
+
+queue.o: queue.cpp.o
+.PHONY : queue.o
+
+# target to build an object file
+queue.cpp.o:
+	cd /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/queue.dir/build.make tests/CMakeFiles/queue.dir/queue.cpp.o
+.PHONY : queue.cpp.o
+
+queue.i: queue.cpp.i
+.PHONY : queue.i
+
+# target to preprocess a source file
+queue.cpp.i:
+	cd /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/queue.dir/build.make tests/CMakeFiles/queue.dir/queue.cpp.i
+.PHONY : queue.cpp.i
+
+queue.s: queue.cpp.s
+.PHONY : queue.s
+
+# target to generate assembly for a file
+queue.cpp.s:
+	cd /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/queue.dir/build.make tests/CMakeFiles/queue.dir/queue.cpp.s
+.PHONY : queue.cpp.s
+
+rb.o: rb.cpp.o
+.PHONY : rb.o
+
+# target to build an object file
+rb.cpp.o:
+	cd /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/rb.dir/build.make tests/CMakeFiles/rb.dir/rb.cpp.o
+.PHONY : rb.cpp.o
+
+rb.i: rb.cpp.i
+.PHONY : rb.i
+
+# target to preprocess a source file
+rb.cpp.i:
+	cd /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/rb.dir/build.make tests/CMakeFiles/rb.dir/rb.cpp.i
+.PHONY : rb.cpp.i
+
+rb.s: rb.cpp.s
+.PHONY : rb.s
+
+# target to generate assembly for a file
+rb.cpp.s:
+	cd /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/rb.dir/build.make tests/CMakeFiles/rb.dir/rb.cpp.s
+.PHONY : rb.cpp.s
 
 # Help Target
 help:
@@ -181,10 +295,22 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... test"
-	@echo "... bst_op"
-	@echo "... bst_operations_test.o"
-	@echo "... bst_operations_test.i"
-	@echo "... bst_operations_test.s"
+	@echo "... bst"
+	@echo "... hashmap"
+	@echo "... queue"
+	@echo "... rb"
+	@echo "... bst.o"
+	@echo "... bst.i"
+	@echo "... bst.s"
+	@echo "... hashmap.o"
+	@echo "... hashmap.i"
+	@echo "... hashmap.s"
+	@echo "... queue.o"
+	@echo "... queue.i"
+	@echo "... queue.s"
+	@echo "... rb.o"
+	@echo "... rb.i"
+	@echo "... rb.s"
 .PHONY : help
 
 

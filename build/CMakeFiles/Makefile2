@@ -133,11 +133,17 @@ examples/clean: examples/CMakeFiles/esempio.dir/clean
 # Directory level rules for directory tests
 
 # Recursive "all" directory target.
-tests/all: tests/CMakeFiles/bst_op.dir/all
+tests/all: tests/CMakeFiles/bst.dir/all
+tests/all: tests/CMakeFiles/rb.dir/all
+tests/all: tests/CMakeFiles/hashmap.dir/all
+tests/all: tests/CMakeFiles/queue.dir/all
 .PHONY : tests/all
 
 # Recursive "codegen" directory target.
-tests/codegen: tests/CMakeFiles/bst_op.dir/codegen
+tests/codegen: tests/CMakeFiles/bst.dir/codegen
+tests/codegen: tests/CMakeFiles/rb.dir/codegen
+tests/codegen: tests/CMakeFiles/hashmap.dir/codegen
+tests/codegen: tests/CMakeFiles/queue.dir/codegen
 .PHONY : tests/codegen
 
 # Recursive "preinstall" directory target.
@@ -145,7 +151,10 @@ tests/preinstall:
 .PHONY : tests/preinstall
 
 # Recursive "clean" directory target.
-tests/clean: tests/CMakeFiles/bst_op.dir/clean
+tests/clean: tests/CMakeFiles/bst.dir/clean
+tests/clean: tests/CMakeFiles/rb.dir/clean
+tests/clean: tests/CMakeFiles/hashmap.dir/clean
+tests/clean: tests/CMakeFiles/queue.dir/clean
 .PHONY : tests/clean
 
 #=============================================================================
@@ -1077,36 +1086,132 @@ examples/CMakeFiles/esempio.dir/clean:
 .PHONY : examples/CMakeFiles/esempio.dir/clean
 
 #=============================================================================
-# Target rules for target tests/CMakeFiles/bst_op.dir
+# Target rules for target tests/CMakeFiles/bst.dir
 
 # All Build rule for target.
-tests/CMakeFiles/bst_op.dir/all:
-	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/bst_op.dir/build.make tests/CMakeFiles/bst_op.dir/depend
-	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/bst_op.dir/build.make tests/CMakeFiles/bst_op.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build/CMakeFiles --progress-num=1,2 "Built target bst_op"
-.PHONY : tests/CMakeFiles/bst_op.dir/all
+tests/CMakeFiles/bst.dir/all:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/bst.dir/build.make tests/CMakeFiles/bst.dir/depend
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/bst.dir/build.make tests/CMakeFiles/bst.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build/CMakeFiles --progress-num=1,2 "Built target bst"
+.PHONY : tests/CMakeFiles/bst.dir/all
 
 # Build rule for subdir invocation for target.
-tests/CMakeFiles/bst_op.dir/rule: cmake_check_build_system
+tests/CMakeFiles/bst.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/bst_op.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/bst.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build/CMakeFiles 0
-.PHONY : tests/CMakeFiles/bst_op.dir/rule
+.PHONY : tests/CMakeFiles/bst.dir/rule
 
 # Convenience name for target.
-bst_op: tests/CMakeFiles/bst_op.dir/rule
-.PHONY : bst_op
+bst: tests/CMakeFiles/bst.dir/rule
+.PHONY : bst
 
 # codegen rule for target.
-tests/CMakeFiles/bst_op.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/bst_op.dir/build.make tests/CMakeFiles/bst_op.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build/CMakeFiles --progress-num=1,2 "Finished codegen for target bst_op"
-.PHONY : tests/CMakeFiles/bst_op.dir/codegen
+tests/CMakeFiles/bst.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/bst.dir/build.make tests/CMakeFiles/bst.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build/CMakeFiles --progress-num=1,2 "Finished codegen for target bst"
+.PHONY : tests/CMakeFiles/bst.dir/codegen
 
 # clean rule for target.
-tests/CMakeFiles/bst_op.dir/clean:
-	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/bst_op.dir/build.make tests/CMakeFiles/bst_op.dir/clean
-.PHONY : tests/CMakeFiles/bst_op.dir/clean
+tests/CMakeFiles/bst.dir/clean:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/bst.dir/build.make tests/CMakeFiles/bst.dir/clean
+.PHONY : tests/CMakeFiles/bst.dir/clean
+
+#=============================================================================
+# Target rules for target tests/CMakeFiles/rb.dir
+
+# All Build rule for target.
+tests/CMakeFiles/rb.dir/all:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/rb.dir/build.make tests/CMakeFiles/rb.dir/depend
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/rb.dir/build.make tests/CMakeFiles/rb.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build/CMakeFiles --progress-num=9,10 "Built target rb"
+.PHONY : tests/CMakeFiles/rb.dir/all
+
+# Build rule for subdir invocation for target.
+tests/CMakeFiles/rb.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/rb.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build/CMakeFiles 0
+.PHONY : tests/CMakeFiles/rb.dir/rule
+
+# Convenience name for target.
+rb: tests/CMakeFiles/rb.dir/rule
+.PHONY : rb
+
+# codegen rule for target.
+tests/CMakeFiles/rb.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/rb.dir/build.make tests/CMakeFiles/rb.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build/CMakeFiles --progress-num=9,10 "Finished codegen for target rb"
+.PHONY : tests/CMakeFiles/rb.dir/codegen
+
+# clean rule for target.
+tests/CMakeFiles/rb.dir/clean:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/rb.dir/build.make tests/CMakeFiles/rb.dir/clean
+.PHONY : tests/CMakeFiles/rb.dir/clean
+
+#=============================================================================
+# Target rules for target tests/CMakeFiles/hashmap.dir
+
+# All Build rule for target.
+tests/CMakeFiles/hashmap.dir/all:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/hashmap.dir/build.make tests/CMakeFiles/hashmap.dir/depend
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/hashmap.dir/build.make tests/CMakeFiles/hashmap.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build/CMakeFiles --progress-num=5,6 "Built target hashmap"
+.PHONY : tests/CMakeFiles/hashmap.dir/all
+
+# Build rule for subdir invocation for target.
+tests/CMakeFiles/hashmap.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/hashmap.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build/CMakeFiles 0
+.PHONY : tests/CMakeFiles/hashmap.dir/rule
+
+# Convenience name for target.
+hashmap: tests/CMakeFiles/hashmap.dir/rule
+.PHONY : hashmap
+
+# codegen rule for target.
+tests/CMakeFiles/hashmap.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/hashmap.dir/build.make tests/CMakeFiles/hashmap.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build/CMakeFiles --progress-num=5,6 "Finished codegen for target hashmap"
+.PHONY : tests/CMakeFiles/hashmap.dir/codegen
+
+# clean rule for target.
+tests/CMakeFiles/hashmap.dir/clean:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/hashmap.dir/build.make tests/CMakeFiles/hashmap.dir/clean
+.PHONY : tests/CMakeFiles/hashmap.dir/clean
+
+#=============================================================================
+# Target rules for target tests/CMakeFiles/queue.dir
+
+# All Build rule for target.
+tests/CMakeFiles/queue.dir/all:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/queue.dir/build.make tests/CMakeFiles/queue.dir/depend
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/queue.dir/build.make tests/CMakeFiles/queue.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build/CMakeFiles --progress-num=7,8 "Built target queue"
+.PHONY : tests/CMakeFiles/queue.dir/all
+
+# Build rule for subdir invocation for target.
+tests/CMakeFiles/queue.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/queue.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build/CMakeFiles 0
+.PHONY : tests/CMakeFiles/queue.dir/rule
+
+# Convenience name for target.
+queue: tests/CMakeFiles/queue.dir/rule
+.PHONY : queue
+
+# codegen rule for target.
+tests/CMakeFiles/queue.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/queue.dir/build.make tests/CMakeFiles/queue.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/edo/Desktop/ALL/CODE/PROJECTS/C/dataStruct/build/CMakeFiles --progress-num=7,8 "Finished codegen for target queue"
+.PHONY : tests/CMakeFiles/queue.dir/codegen
+
+# clean rule for target.
+tests/CMakeFiles/queue.dir/clean:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/queue.dir/build.make tests/CMakeFiles/queue.dir/clean
+.PHONY : tests/CMakeFiles/queue.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
